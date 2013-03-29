@@ -52,7 +52,8 @@ $footerHeight             : 110px;
 $baseFontColor                      : #767676;
 $titleColor 						: #8f99a1;
 $bodyColor                          : #fff;
-$attentionColor                     : #6b9dc4;
+$attentionColor                     : #4a9ec8;
+$borderColor                        : #c9c9c9;
 // Alerts, errors and UI interface
 $alert 								: red;
 $success 							: green;
@@ -696,11 +697,115 @@ body {
 }
 /*PRODUCT page------------------------*/
 .b-product{
+  .product__header{
+    @extend .jLine;
+    margin: 10px 0;
+  }
+  .product__name{
+    width: 760px;
+    color: #717171;
+    font-size: 31px;
+    line-height: 1.2;
+  }
+  .product__viewAll{
+    max-width: 225px;
+    @include singleLink(#7d7b6a);
+    font-size: 13px;
+    font-weight: bold;
+    @include text-shadow(0 1px 0 #fff);
+    @include box-shadow(inset 0 0 0 1px #fff);
+    text-decoration: none;
+    padding: 10px 20px;
+    border:2px solid #e7e6dc;
+    @include border-radius(8px);
+    background-color: #fffcd3;
+    @include filter-gradient(#fffcd3, #fff795, vertical);
+    @include background-image(linear-gradient(top,  #fffcd3 0%,#fefaca 25%,#fffac0 42%,#fff9bb 44%,#fff7a6 75%,#fff69f 81%,#fff795 100%));
+    @extend .ie9-gradient-support;
+  }
 
-  .product__header{}
-  .product__name{}
-  .product__viewAll{}
+  .product__info--secondary{
+    width:380px;
+    margin-bottom: 10px;
+  }
+  .product__image{
+    height: 385px;
+    border: 1px solid $borderColor;
+    @include border-radius(10px);
+    overflow: hidden;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .product__tools{
+    background-color: #fafeff;
+    @include filter-gradient(#fafeff, #f9fdfe, vertical);
+    @include background-image(linear-gradient(top,  #fafeff 0%,#fcfdff 43%,#f9fdfe 100%));
+    @extend .ie9-gradient-support;
+    border: 1px solid #d5e4ec;
+    @include border-radius(10px);
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+  .product__tools__title{
+    font-size: 19px;
+    color:#487394;
+    margin-bottom: 5px;
+  }
+  .product__tools__list{
+    padding-left: 17px;
+    list-style-type: disc;
+    color:$attentionColor;
+    li{margin: 5px 0;}
+  }
 
+  .product__info--primary{
+    width: 565px;
+    margin-bottom: 10px;
+  }
+  .product__characteristics{
+    width:100%;
+    font-size: 13px;
+    td{
+      width:50%;
+      padding: 8px 15px;
+    }
+    tr:nth-child(even) td{background-color: #f7f8f8;}
+  }
+  .product__price{
+    border-top: 1px solid $borderColor;
+    border-bottom: 1px solid $borderColor;
+    margin-bottom: 10px;
+    padding: 0 10px 10px 30px;
+    font-style: italic;
+    background-image: url();
+    .ie87 & {
+      background-image: url(../img/base64/)
+    }
+    .attention{
+      color:#79b550;
+      font-size: 22px;
+      position: relative;
+      top: 8px;
+      line-height: 0;
+    }
+  }
+  .product__price__title{
+    font-style: normal;
+    margin: 10px 0;
+    color: #787878;
+    font-size: 22px;
+    .attention--title{
+      color:#79b550;
+      position: static;
+      margin:0 5px;
+    }
+  }
+  .product__service{}
+  .product__service__title{}
+  .product__service__action{}
+
+  .product__description{}
 }
 /*PLUGINS styles -------------------*/
 
