@@ -361,20 +361,21 @@ a{
   ul{
     list-style-type: disc;
     margin-bottom:$paragraphSpace;
-    //li{
-    //  position: relative;
-    //  &:before{
-    //    content: '-';
-    //    position: absolute;
-    //    right:100%;
-    //  }
-    //}
+    color:$attentionColor;
+    li{
+      margin: 5px 0;
+    }
   }
   ol{
     margin-bottom:$paragraphSpace;
     list-style-type: decimal;
   }
-  h1 {font-size: 2.2em;}
+  h1 {
+    color: #8f99a0;
+    font-size: 24px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
   h2 {font-size: 1.7em;}
   h3 {font-size: 1em; font-weight: bold;}
   h4 {font-size: 0.9em;}
@@ -520,9 +521,17 @@ body {
 //footer
 .b-footer{
   position: relative;
-  //@extend .pageWidth;
+  background-color: #f9f9fb;
+  @include filter-gradient(#f9f9fb, #f0f0f2, vertical);
+  @include background-image(linear-gradient(top,  #f9f9fb 0%,#f9f9fb 29%,#f7f7f9 32%,#f7f7f9 51%,#f0f0f2 100%));
+  padding-top: 30px;
 }
-
+.b-footer__info{
+  @extend .hLine-top;
+  padding: 12px 0;
+  @include border-radius(10px);
+  border: 1px solid #c9c9c9;
+}
 //content zone
 .b-main{
   position: relative;
@@ -582,10 +591,14 @@ body {
   top: 30px;
   left: 405px;
 }
+.b-phone--footer{
+  @extend .b-phone;
+  margin: 0 20px;
+}
 .b-email{
   color: $attentionColor;
   font-size: 13px;
-  .phone__label{
+  .email__label{
     font-size: 9px;
     text-transform: uppercase;
   }
@@ -596,14 +609,99 @@ body {
   top:30px;
   left: 755px;
 }
-
+.b-email--footer{
+  @extend .b-email;
+  margin: 0 20px;
+}
 
 
 
 /*INDEX page-----------------------*/
+.b-catalog{
+  @extend .jLine-top;
+  border-bottom: 1px solid #e1e1e1;
+  margin-bottom: 10px;
+  .catalog__unit{
+    width: 280px;
+    height: 300px;
+    border: 1px solid #d5d5d5;
+    @include border-radius(10px);
+    box-shadow: 3px 3px 0 #e9eff6;
+    margin:25px 0;
+    @extend .ie9-gradient-support;
+    font-size: 11px;
+    padding: 10px 20px;
+    p{margin-bottom: 3px;}
+  }
+  .catalog__unit--viewAll{
+    @extend .catalog__unit;
+    background-color: #fbfefe;
+    @include filter-gradient(#fbfefe, #dfeff1, vertical);
+    @include background-image(linear-gradient(top,  #fbfefe 0%,#fcfdfe 31%,#f7fbfc 39%,#f9fcfd 40%,#f9fafb 41%,#f5f9fa 52%,#f1f9fa 53%,#f4f8f9 53%,#f0f8f9 55%,#eff6f7 64%,#ecf7f9 65%,#ecf5f7 70%,#e6f5f6 73%,#e4f1f3 87%,#dff2f4 88%,#e2f1f2 89%,#dff2f4 89%,#e2f1f2 89%,#dff2f4 90%,#e2f1f2 90%,#def1f3 91%,#e2f1f2 91%,#def1f3 92%,#e2f1f2 92%,#def1f3 92%,#def1f3 93%,#e1f0f1 94%,#def1f3 94%,#e1f0f1 95%,#ddf0f2 95%,#e0f0f1 96%,#ddf0f2 96%,#e0f0f1 96%,#ddf0f2 97%,#dfeff1 100%));
+    border-color: #bedfe7;
+    box-shadow: 3px 3px 0 #e9eff6;
+    padding-top: 30px;
+    text-align: center;
+    position: relative;
+    font-size: 12px;
+    &:before{
+      @extend .pseudo-block;
+      background: url("../img/viewAll-image.png");
+      width: 280px;
+      height: 148px;
+      bottom: 0;
+      left: 0;
+    }
+    .viewAll__link{
+      position: absolute;
+      width: 190px;
+      padding: 8px 25px;
+      bottom: 125px;
+      text-decoration: none;
+      left: 50%;
+      margin-left: -95px;
+      background-color: #f7fafe;
+      border: 2px solid #bdcde1;
+      @include border-radius(10px);
+      @include filter-gradient(#f7fafe, #ddedfd, vertical);
+      @include background-image(linear-gradient(top,  #f7fafe 0%,#f9fafe 8%,#f2f7fe 57%,#e1f0fe 86%,#ddedfd 89%,#ddedfd 100%));
+      @extend .ie9-gradient-support;
+      @include singleLink(#637f87);
+      font-size: 15px;
+      line-height: 1.3;
+      font-weight: bold;
+      @include text-shadow(0 1px 0 #fff);
+    }
+  }
+  .unit__photo{
+    text-align: center;
+    height: 165px;
+    margin-bottom: 10px;
+    img{height: 100%;}
+  }
+  .unit__title{
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+}
+.b-info{
+  @extend .jLine-top;
+  margin-bottom: 10px;
+  .info__primary{width: 680px;}
+  .info__secondary{
+    width: 260px;
+    padding-top: 10px;
+  }
+}
+/*PRODUCT page------------------------*/
+.b-product{
 
-/*SOME page------------------------*/
+  .product__header{}
+  .product__name{}
+  .product__viewAll{}
 
+}
 /*PLUGINS styles -------------------*/
 
 //FF special
